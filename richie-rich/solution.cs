@@ -10,54 +10,64 @@ class Solution {
         int k = Convert.ToInt32(tokens_n[1]);
         
         var number = Console.ReadLine().ToCharArray().Select(x => int.Parse(x.ToString())).ToArray();
-        
-        if (k >= n)
+
+        // Count the number of required swaps
+        int required = 0;
+        for (int i = 0, j = n - 1; i < n / 2; i++, j--)
         {
-            // Edge case: we have enough "k" to just change everything to a 9
-            for (var i = 0; i < n; i++) { number[i] = 9; }
-        }
-        else
-        {
-            // Start in the middle and palinize our way out
-            int i = (n / 2) - 1;
-            int j = i + 1;
-            if ((n % 2) == 1) { j += 1; }
-            
-            while (i >= 0)
+            if (number[i] != number[j])
             {
-                if (number[i] != number[j])
-                {
-                    if (k == 0)
-                    {
-                        Console.WriteLine("-1");
-                        return;
-                    }
-                    
-                    if (k >= 2 * (i + 1))
-                    {
-                        // TODO - what if a more significant digit needs to be swapped?
-                        k -= 2;
-                        number[i] = 9;
-                        number[j] = 9;
-                    }
-                    else
-                    {
-                        k -= 1;
-                        if (number[i] > number[j])
-                        {
-                            number[j] = number[i];
-                        }
-                        else
-                        {
-                            number[i] = number[j];
-                        }
-                    }
-                }
-                
-                i -= 1; j += 1;
+                required += 1;
             }
         }
         
+        // Determine how many "extra" swaps we have left over
+        int extra = k - required;
+        
+        // Console.WriteLine(extra);
+        
+        // If we can't make a palindrome, we're done.
+        if (extra < 0)
+        {
+            Console.WriteLine(-1);
+            return;
+        }
+        
+        // Go through and make the swaps, taking advantage of extras...
+        for (int i = 0, j = n - 1; i < n / 2; i++, j--)
+        {
+            if (extra >= 2)
+            {
+                if (number[i] != 9)
+                {
+                    number[i] = 9;
+                    extra -= 1;
+                }
+                if (number[j] != 9)
+                {
+                    number[j] = 9;
+                    extra -= 1;
+                }
+            }
+            else if (extra >= 1 && number[j] > number[i])
+            {
+                number[i] = number[j];
+                extra -= 1;
+            }
+            else if (number[i] != number[j])
+            {
+                if (number[i] > number[j])
+                {
+                    number[j] = number[i];
+                }
+                else
+                {
+                    number[i] = number[j];
+                }
+            }
+        }
+        
+        // Print the result
         Console.WriteLine(string.Join("", number));
     }
 }
