@@ -32,7 +32,7 @@ class Solution {
             Console.WriteLine(-1);
             return;
         }
-        
+
         // Go through and make the swaps, taking advantage of extras...
         for (int i = 0, j = n - 1; i < n / 2; i++, j--)
         {
