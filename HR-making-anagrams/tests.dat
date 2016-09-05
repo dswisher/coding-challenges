@@ -1,0 +1,21 @@
+
+vvvv Example
+cde
+abc
+----
+4
+^^^^
+
+vvvv Mine-01
+acegikm
+abdfhjl
+----
+12
+^^^^
+
+vvvv Mine-02
+def
+abcdefghi
+----
+6
+^^^^

@@ -1,0 +1,21 @@
+
+vvvv Example
+3
+aaab
+baa
+aaa
+----
+3
+0
+-1
+^^^^
+
+vvvv Mine-01
+2
+abcdxdcba
+abcdxydcba
+----
+-1
+4
+^^^^
+
