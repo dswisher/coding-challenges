@@ -10,6 +10,16 @@ aaa
 -1
 ^^^^
 
+vvvv TEST-14
+@@ BIG/input-14.txt
+----
+16722
+76661
+10035
+57089
+46674
+^^^^
+
 vvvv Mine-01
 2
 abcdxdcba
