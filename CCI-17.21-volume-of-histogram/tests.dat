@@ -13,3 +13,22 @@ vvvv SO-01
 ----
 14
 ^^^^
+
+%% See http://www.geeksforgeeks.org/trapping-rain-water/
+vvvv GfG-01
+2 0 2
+----
+2
+^^^^
+
+vvvv GfG-02
+3 0 0 2 0 4
+----
+10
+^^^^
+
+vvvv GfG-03
+0 1 0 2 1 0 1 3 2 1 2 1
+----
+6
+^^^^
