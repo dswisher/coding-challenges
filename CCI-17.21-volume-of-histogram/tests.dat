@@ -1,0 +1,15 @@
+
+%% Not sure how they get this answer - seems like it should be 25
+vvvv Book Example
+0 0 4 0 0 6 0 0 3 0 5 0 1 0 0 0
+----
+26
+^^^^
+
+
+%% See http://stackoverflow.com/q/24414700/282725
+vvvv SO-01
+5 3 7 2 6 4 5 9 1 2
+----
+14
+^^^^
