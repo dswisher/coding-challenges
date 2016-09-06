@@ -1,0 +1,6 @@
+
+Tic Tac Win: Design an algorithm to figure out if someone has won a game of tic-tac-toe.
+pp.192
+hints: #710, #732  (pp. 704 ff)
+solution: pp.477
+

@@ -1,0 +1,6 @@
+
+Number Swapper: Write a function to swap a number in place (that is, without temporary variables).
+pp.192
+hints: #492, #716, #737  (pp. 691 ff)
+solution: pp.473
+
