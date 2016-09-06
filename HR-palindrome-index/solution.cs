@@ -8,8 +8,8 @@ public class Solution
 		var T = int.Parse(Console.ReadLine());
 		for (var i = 0; i < T; i++)
 		{
-			// RunTest(Console.ReadLine());
-			BruteForce(Console.ReadLine());
+			BetterVersion(Console.ReadLine());
+			// BruteForce(Console.ReadLine());
 		}
 	}
 
@@ -55,9 +55,27 @@ public class Solution
 	}
 
 
-	private static void RunTest(string s)
+	private static void BetterVersion(string s)
 	{
-		// TODO - more efficient version
+		for (int i = 0, j = s.Length - 1; i < j; i++, j--)
+		{
+			if (s[i] != s[j])
+			{
+				if (IsPalindrome(s, i))
+				{
+					Console.WriteLine(i);
+					return;
+				}
+				if (IsPalindrome(s, j))
+				{
+					Console.WriteLine(j);
+					return;
+				}
+				Console.WriteLine(-1);
+			}
+		}
+
+		Console.WriteLine(-1);
 	}
 }
 
