@@ -33,7 +33,7 @@ function show_diffs {
 
 # ---- RUN_TEST ----
 function run_test {
-	mono solution.exe < $INNAME > $OUTNAME
+	mono --debug solution.exe < $INNAME > $OUTNAME
 	if [ $? -ne 0 ]; then
 		echo "   FAIL! -> runtime error!"
 		return
@@ -68,7 +68,7 @@ function main {
 
 	# Compile the solution...
 	echo "...compiling..."
-	mcs solution.cs
+	mcs -debug solution.cs
 
 	if [ $? -ne 0 ]; then
 		echo "Compilation FAILED!"
