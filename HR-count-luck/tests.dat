@@ -1,4 +1,18 @@
 
+vvvv SIMPLE
+1
+4 11
+.X.X......X
+.X*.X.XXX.X
+.XX.X.XM...
+......XXXX.
+3
+----
+Impressed
+^^^^
+
+@@ STOP
+
 vvvv SAMPLE-01
 3
 2 3
@@ -22,4 +36,40 @@ Impressed
 Impressed
 Oops!
 ^^^^
+
+vvvv DISCUSS-01
+5
+3 6
+*.M...
+.X.X.X
+XXX...
+1
+3 6
+*..M..
+.X.X.X
+XXX...
+2
+3 6
+*M....
+.X.X.X
+XXX...
+1
+3 6
+*....M
+.X.X.X
+XXX...
+2
+3 6
+*.....
+.X.X.X
+XXX.M.
+3
+----
+Impressed
+Impressed
+Impressed
+Impressed
+Impressed
+^^^^
+
 

@@ -81,6 +81,9 @@ function main {
 	do
 		if [[ $line == %* ]]; then
 			echo $line > /dev/null
+		elif [[ $line == "@@ STOP" ]]; then
+			echo "-- STOP --"
+			exit 0
 		elif [[ $line == vvvv* ]]; then
 			TESTNAME=$(echo $line | cut -d' ' -f 2)
 			echo "==== $TESTNAME ===="
