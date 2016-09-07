@@ -21,11 +21,26 @@ public class Solution
 			}
 			else
 			{
-				contig = FindContig(a);
+				// contig = FindContig(a);
+				contig = Kadane(a);
 			}
 
 			Console.WriteLine("{0} {1}", contig, nonCon);
 		}
+	}
+
+
+	private static int Kadane(int[] a)
+	{
+		// From Wikipedia  :(     See https://en.wikipedia.org/wiki/Maximum_subarray_problem
+		var maxEndingHere = a[0];
+		var maxSoFar = a[0];
+		for (var i = 1; i < a.Length; i++)
+		{
+			maxEndingHere = Math.Max(a[i], maxEndingHere + a[i]);
+			maxSoFar = Math.Max(maxSoFar, maxEndingHere);
+		}
+		return maxSoFar;
 	}
 
 
