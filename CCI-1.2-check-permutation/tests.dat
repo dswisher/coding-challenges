@@ -1,0 +1,15 @@
+
+vvvv MINE-01
+abcde
+bcdea
+----
+yes
+^^^^
+
+vvvv MINE-02
+abcde
+bcdex
+----
+no
+^^^^
+
