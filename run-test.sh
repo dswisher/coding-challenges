@@ -68,7 +68,7 @@ function main {
 
 	# Compile the solution...
 	echo "...compiling..."
-	mcs -debug solution.cs
+	mcs -debug -r:System.Numerics solution.cs
 
 	if [ $? -ne 0 ]; then
 		echo "Compilation FAILED!"
