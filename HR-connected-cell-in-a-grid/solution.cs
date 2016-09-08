@@ -22,24 +22,7 @@ public class Solution
 
 		var regions = FindRegions(cells);
 
-		PrintMap(cells);
-
-		// TODO - print the max; for now, print 'em all, per CCI-16.19.
-		Console.WriteLine("Region sizes: {0}", string.Join(", ", regions));
-	}
-
-
-	private static void PrintMap(int[,] cells)
-	{
-		for (var r = 0; r < cells.GetLength(0); r++)
-		{
-			for (var c = 0; c < cells.GetLength(1); c++)
-			{
-				Console.Write("{0} ", cells[r, c]);
-			}
-
-			Console.WriteLine();
-		}
+		Console.WriteLine(regions.Max());
 	}
 
 
@@ -70,8 +53,13 @@ public class Solution
 		cells[r, c] = 8;	// mark as visited
 
 		var size = 1;
-
-		// TODO
+		for (var i = -1; i <= 1; i++)
+		{
+			for (var j = -1; j <= 1; j++)
+			{
+				size += RegionSize(cells, r + i, c + j);
+			}
+		}
 
 		return size;
 	}
