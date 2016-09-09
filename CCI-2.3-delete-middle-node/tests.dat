@@ -1,0 +1,22 @@
+
+vvvv MINE-01
+a b c d e f
+c
+----
+a b d e f
+^^^^
+
+vvvv START
+a b c d e f
+a
+----
+b c d e f
+^^^^
+
+vvvv END
+a b c d e f
+f
+----
+a b c d e f
+^^^^
+
