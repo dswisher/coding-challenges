@@ -1,0 +1,33 @@
+
+vvvv SAMPLE-00
+8
+1 abc
+3 3
+2 3
+1 xy
+3 2
+4 
+4 
+3 1
+----
+c
+y
+a
+^^^^
+
+vvvv TEST-02
+10
+1 lchbfcjtfpsmjrqsdgci
+3 19
+1 cpcvixlm
+1 apdjgjydvpbpvyiy
+2 29
+4
+4
+3 9
+4
+4
+----
+c
+f
+^^^^

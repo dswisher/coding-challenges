@@ -33,9 +33,11 @@ function show_diffs {
 
 # ---- RUN_TEST ----
 function run_test {
-	mono --debug solution.exe < $INNAME > $OUTNAME
+	mono --debug solution.exe < $INNAME > $OUTNAME 2>&1
 	if [ $? -ne 0 ]; then
 		echo "   FAIL! -> runtime error!"
+		echo "Output:"
+		cat $OUTNAME
 		return
 	fi
 
