@@ -1,0 +1,29 @@
+
+vvvv SAMPLE-00
+aba
+10
+----
+7
+^^^^
+
+vvvv SAMPLE-01
+a
+1000000000000
+----
+1000000000000
+^^^^
+
+vvvv MINE-01
+bbbbbacccc
+105
+----
+10
+^^^^
+
+vvvv MINE-02
+bbbbbacccc
+106
+----
+11
+^^^^
+
