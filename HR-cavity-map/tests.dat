@@ -12,3 +12,30 @@ vvvv SAMPLE-01
 1234
 ^^^^
 
+vvvv MINE-01
+4
+9999
+9999
+9999
+9999
+----
+9999
+9999
+9999
+9999
+^^^^
+
+@@ STOP
+
+vvvv TEST-05
+@@ BIG/input-05.txt
+----
+@@ BIG/output-05.txt
+^^^^
+
+vvvv TEST-08
+@@ BIG/input-08.txt
+----
+@@ BIG/output-08.txt
+^^^^
+
