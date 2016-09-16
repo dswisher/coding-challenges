@@ -1,0 +1,57 @@
+
+vvvv SAMPLE-00
+5  
+47
+----
+thirteen minutes to six
+^^^^
+
+vvvv Example-01
+5  
+0
+----
+five o' clock
+^^^^
+
+vvvv Example-02
+5  
+1
+----
+one minute past five
+^^^^
+
+vvvv Example-03
+5 
+10
+----
+ten minutes past five
+^^^^
+
+vvvv Example-04
+5 
+30
+----
+half past five
+^^^^
+
+vvvv Example-05
+5 
+45
+----
+quarter to six
+^^^^
+
+vvvv Example-06
+5 
+28
+----
+twenty eight minutes past five
+^^^^
+
+vvvv Mine-01
+12
+45
+----
+quarter to one
+^^^^
+
