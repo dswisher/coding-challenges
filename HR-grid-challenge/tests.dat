@@ -1,0 +1,47 @@
+
+vvvv SAMPLE-00
+1
+5
+ebacd
+fghij
+olmkn
+trpqs
+xywuv
+----
+YES
+^^^^
+
+vvvv TESTCASE-01
+2
+2
+kc
+iu
+3
+uxf
+vof
+hmp
+----
+YES
+NO
+^^^^
+
+vvvv TESTCASE-02
+3
+3
+ppp
+ypp
+wyw
+5
+lyivr
+jgfew
+uweor
+qxwyr
+uikjd
+1
+l
+----
+YES
+NO
+YES
+^^^^
+
