@@ -12,8 +12,8 @@ public class Solution
 			var n = int.Parse(Console.ReadLine());
 			var prices = Console.ReadLine().Split(' ').Select(x => int.Parse(x)).ToArray();
 
-			var maxPrice = int.MinValue;
-			var profit = 0;
+			var maxPrice = long.MinValue;
+			var profit = 0L;
 			for (var i = n - 1; i >= 0; i--)
 			{
 				if (prices[i] > maxPrice)
