@@ -17,6 +17,7 @@ public class Solution
 
 	private static void QuickSort(int[] arr)
 	{
+		Console.WriteLine(" -> {0}", string.Join(" ", arr));
 		QuickSort(arr, 0, arr.Length - 1);
 	}
 
@@ -27,7 +28,7 @@ public class Solution
 
 		var i = Partition(arr, lo, hi);
 
-		QuickSort(arr, lo, i - 1);
+		QuickSort(arr, lo, i);
 		QuickSort(arr, i + 1, hi);
 	}
 
