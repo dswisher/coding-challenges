@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 public class Solution
 {
@@ -10,10 +11,8 @@ public class Solution
 		var half = n / 2;
 
 		var data = new List<string>[100];
-		for (var i = 0; i < 100; i++)
-		{
-			data[i] = new List<string>();
-		}
+		var empt = new int[100];
+		for (var i = 0; i < 100; i++) { data[i] = new List<string>(); }
 
 		for (var i = 0; i < n; i++)
 		{
@@ -21,26 +20,28 @@ public class Solution
 			var x = int.Parse(bits[0]);
 			var s = bits[1];
 
-			if (i < half)
-			{
-				data[x].Add("-");
-			}
-			else
-			{
-				data[x].Add(s);
-			}
+			if (i < half) { empt[x] += 1; }
+			else { data[x].Add(s); }
 		}
-		
+
+		// Turns out: building the string and then writing it out en masse is faster that writing it piecemeal
+		var builder = new StringBuilder();
 		var first = true;
 		for (var i = 0; i < 100; i++)
 		{
+			for (var j = 0; j < empt[i]; j++)
+			{
+				if (first) first = false; else builder.Append(" ");
+				builder.Append("-");
+			}
+
 			foreach (var s in data[i])
 			{
-				if (first) first = false; else Console.Write(" ");
-				Console.Write(s);
+				if (first) first = false; else builder.Append(" ");
+				builder.Append(s);
 			}
 		}
-		Console.WriteLine();
+		Console.WriteLine(builder.ToString());
 	}
 }
 

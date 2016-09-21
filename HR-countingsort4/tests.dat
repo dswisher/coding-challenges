@@ -25,3 +25,9 @@ vvvv SAMPLE-00
 - - - - - to be or not to be - that is the question - - - -
 ^^^^
 
+vvvv TEST-05
+@@ BIG/input-05.txt
+----
+@@ BIG/output-05.txt
+^^^^
+
