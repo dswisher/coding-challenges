@@ -17,7 +17,6 @@ public class Solution
 
 	private static void QuickSort(int[] arr)
 	{
-		Console.WriteLine(" -> {0}", string.Join(" ", arr));
 		QuickSort(arr, 0, arr.Length - 1);
 	}
 
@@ -28,28 +27,34 @@ public class Solution
 
 		var i = Partition(arr, lo, hi);
 
-		QuickSort(arr, lo, i);
+		QuickSort(arr, lo, i - 1);
 		QuickSort(arr, i + 1, hi);
 	}
 
 
 	private static int Partition(int[] arr, int lo, int hi)
 	{
-		var p = arr[lo];	// arbitrary
-		var i = lo - 1;
-		var j = hi + 1;
+		var p = arr[hi];
+		var i = lo;
 
-		while (true)
+		for (var j = lo; j < hi; j++)
 		{
-			do { i += 1; } while (arr[i] < p);
-			do { j -= 1; } while (arr[j] > p);
-
-			if (i >= j) return j;
-
-			var temp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = temp;
+			if (arr[j] <= p)
+			{
+				Swap(arr, i, j);
+				i += 1;
+			}
 		}
+		Swap(arr, i, hi);
+		return i;
+	}
+
+
+	private static void Swap(int[] arr, int a, int b)
+	{
+		var temp = arr[a];
+		arr[a] = arr[b];
+		arr[b] = temp;
 	}
 }
 
