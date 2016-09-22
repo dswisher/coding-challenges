@@ -35,7 +35,17 @@ public class Solution
 	{
 		var pivotValue = ar[pivotIdx];
 		Swap(ar, pivotIdx, right);
-		// TODO - see https://en.wikipedia.org/wiki/Quickselect#Partition-based_general_selection_algorithm
+		var si = left;
+		for (var i = left; i < right; i++)
+		{
+			if (ar[i] < pivotValue)
+			{
+				Swap(ar, si, i);
+				si += 1;
+			}
+		}
+		Swap(ar, right, si);
+		return si;
 	}
 
 
