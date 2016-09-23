@@ -18,29 +18,23 @@ public class Solution
 			switch (bits[0])
 			{
 				case 1:		// Enqueue
-					FillTail();
 					_tail.Push(bits[1]);
 					break;
 
 				case 2:		// Dequeue
-					FillHead();
+					if (_head.Count == 0) { Shuffle(); }
 					_head.Pop();
 					break;
 
 				case 3:		// Print (aka Peek)
-					FillHead();
+					if (_head.Count == 0) { Shuffle(); }
 					Console.WriteLine(_head.Peek());
 					break;
 			}
 		}
 	}
 
-	private static void FillTail()
-	{
-		while (_head.Count > 0) { _tail.Push(_head.Pop()); }
-	}
-
-	private static void FillHead()
+	private static void Shuffle()
 	{
 		while (_tail.Count > 0) { _head.Push(_tail.Pop()); }
 	}
