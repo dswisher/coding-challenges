@@ -68,9 +68,14 @@ function main {
 		exit 1
 	fi
 
+	EXTRAS=""
+	if [ -f uses-treelib ]; then
+		EXTRAS="../LIB/tree-lib.cs"
+	fi
+
 	# Compile the solution...
 	echo "...compiling..."
-	mcs -debug -r:System.Numerics solution.cs
+	mcs -debug -r:System.Numerics solution.cs $EXTRAS
 
 	if [ $? -ne 0 ]; then
 		echo "Compilation FAILED!"
