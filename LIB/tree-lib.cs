@@ -35,6 +35,8 @@ public static class TreeLib
 
 
 
+	// TODO - see http://stackoverflow.com/questions/4965335/how-to-print-binary-tree-diagram
+	//   and ../tree.txt
     public static void Print(Node node, int depth = 0)
     {
         if (node.Right != null)
