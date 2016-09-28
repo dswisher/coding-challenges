@@ -1,0 +1,11 @@
+How would you design a class that behaves similar to a
+Java Map <Date,Object> except that get() returns the mapped value for
+not only an exact match but also for the latest Date in the Map up to
+(but not including) the requested Date? Note that null is returned for
+get() if a Date earlier than the earliest date in the Map.
+
+Implement the get() and put() methods of the class. What are good test
+cases for these two methods?
+
+(return previous closest date, if any)
+
