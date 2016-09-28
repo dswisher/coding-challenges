@@ -93,22 +93,22 @@ public class TreeMap<K,V> where K : IComparable<K>
 
 	public V Get(K key)
 	{
-		return Get(_root, key);
+		return Get(_root, key, default(V));
 	}
 
 
-	private V Get(Node parent, K key)
+	private V Get(Node parent, K key, V lastLeft)
 	{
-		if (parent == null) { return default(V); }
+		if (parent == null) { return lastLeft; }
 		if (parent.Key.Equals(key)) { return parent.Value; }
 
 		if (parent.Key.CompareTo(key) < 0)
 		{
-			return Get(parent.Left, key);
+			return Get(parent.Left, key, parent.Value);
 		}
 		else
 		{
-			return Get(parent.Right, key);
+			return Get(parent.Right, key, lastLeft);
 		}
 	}
 
