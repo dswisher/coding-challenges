@@ -39,35 +39,86 @@ public class Solution
 
 public class TreeMap<K,V> where K : IComparable<K>
 {
-	private readonly Dictionary<K,V> _map = new Dictionary<K,V>();
+	private Node _root;
+
 
 	public void Put(K key, V value)
 	{
-		// TODO!
-		_map.Add(key, value);
+		var node = new Node { Key = key, Value = value };
+
+		if (_root == null)
+		{
+			_root = node;
+		}
+		else
+		{
+			Add(_root, node);
+		}
+	}
+
+
+	private void Add(Node parent, Node child)
+	{
+		if (parent.Key.Equals(child.Key))
+		{
+			throw new Exception("Duplicate key.");	// TODO - better exception
+		}
+
+		if (parent.Key.CompareTo(child.Key) < 0)
+		{
+			// Add to left
+			if (parent.Left == null)
+			{
+				parent.Left = child;
+			}
+			else
+			{
+				Add(parent.Left, child);
+			}
+		}
+		else
+		{
+			// Add to right
+			if (parent.Right == null)
+			{
+				parent.Right = child;
+			}
+			else
+			{
+				Add(parent.Right, child);
+			}
+		}
 	}
 
 
 	public V Get(K key)
 	{
-		if (_map.Count == 0) return default(V);
+		return Get(_root, key);
+	}
 
-		var maxKey = default(K);
-		var minVal = default(V);
-		var found = false;
 
-		foreach (var pair in _map)
+	private V Get(Node parent, K key)
+	{
+		if (parent == null) { return default(V); }
+		if (parent.Key.Equals(key)) { return parent.Value; }
+
+		if (parent.Key.CompareTo(key) < 0)
 		{
-			     // pair.Key < key                                pair.Key < minKey
-			if ((pair.Key.CompareTo(key) < 0) && (!found || (pair.Key.CompareTo(maxKey) > 0)))
-			{
-				maxKey = pair.Key;
-				minVal = pair.Value;
-				found = true;
-			}
+			return Get(parent.Left, key);
 		}
-		
-		return minVal;
+		else
+		{
+			return Get(parent.Right, key);
+		}
+	}
+
+
+	private class Node
+	{
+		public K Key { get; set; }
+		public V Value { get; set; }
+		public Node Left { get; set; }
+		public Node Right { get; set; }
 	}
 }
 

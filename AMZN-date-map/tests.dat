@@ -2,12 +2,15 @@
 vvvv SAMPLE-00
 P 25-Oct-1990 Geoff
 P 8-Apr-1992 Christine
-G 16-Mar-1965
+P 16-Mar-1965 Doug
+G 1-Jan-1960
 G 1-Jan-1991
 G 31-Dec-1995
+G 16-Mar-1965
 ----
 nil
 Geoff
 Christine
+Doug
 ^^^^
 
