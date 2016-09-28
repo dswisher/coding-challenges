@@ -1,0 +1,8 @@
+Imagine you have a stream of number coming from some system and
+you want to store them. Design a data structure to store these
+numbers. Given a number in the structure, tell the ranking of the
+number in the natural order of the value.
+
+Example: for a list of numbers 1, 2, 6, 5, 7, when given the
+number 5, return 3 as 5 ranks the 3rd smallest number.
+
