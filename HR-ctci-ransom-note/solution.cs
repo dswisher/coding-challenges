@@ -8,21 +8,33 @@ public class Solution
 	{
 		Console.ReadLine();
 
-		var availableWords = new HashSet<string>();
-		availableWords.UnionWith(ReadWords());
+		// Read the words
+		var hash = new Dictionary<string, int>();
+		foreach (var w in ReadWords())
+		{
+			if (hash.ContainsKey(w))
+			{
+				hash[w] += 1;
+			}
+			else
+			{
+				hash.Add(w, 1);
+			}
+		}
 
-		Console.WriteLine(AreAllAvailable(ReadWords(), availableWords) ? "Yes" : "No");
+		Console.WriteLine(AreAllAvailable(ReadWords(), hash) ? "Yes" : "No");
 	}
 
 
-	private static bool AreAllAvailable(IEnumerable<string> ransomWords, HashSet<string> availableWords)
+	private static bool AreAllAvailable(IEnumerable<string> ransomWords, Dictionary<string, int> hash)
 	{
 		foreach (var word in ransomWords)
 		{
-			if (!availableWords.Contains(word))
-			{
-				return false;
-			}
+			if (!hash.ContainsKey(word)) { return false; }
+
+			if (hash[word] == 0) { return false; }
+
+			hash[word] -= 1;
 		}
 
 		return true;
