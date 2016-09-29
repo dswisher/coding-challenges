@@ -26,10 +26,14 @@ public class Solution
 		heap.Add(52);
 		heap.Add(44);
 		heap.Add(1);
+		heap.Add(24);
 		heap.Print();
-		heap.DeleteMax();
-		heap.DeleteMax();
-		heap.Print();
+
+		while (heap.Count > 1)
+		{
+			heap.Delete();
+			heap.Print();
+		}
 #endif
 	}
 }
@@ -85,10 +89,15 @@ public abstract class AbstractHeap
 		return _list[0];
 	}
 
-	protected void RemoveRoot()
+	public void Delete()
 	{
-		// TODO
+		Swap(0, _list.Count - 1);
+		_list.RemoveAt(_list.Count - 1);
+
+		HeapifyDown(0);
 	}
+
+	public int Count { get { return _list.Count; } }
 
 	protected abstract bool NeedsSwap(int parent, int child);
 
@@ -97,11 +106,36 @@ public abstract class AbstractHeap
 		_list.Add(n);
 
 		var pos = _list.Count - 1;
-		while (pos > 0 && NeedsSwap(_list[GetParent(pos)], _list[pos]))
+		HeapifyUp(pos);
+	}
+
+	private void HeapifyDown(int pos)
+	{
+		var left = GetLeftChild(pos);
+		var right = GetRightChild(pos);
+		var swapPos = pos;
+
+		if (left != -1 && NeedsSwap(_list[swapPos], _list[left]))
+			swapPos = left;
+		if (right != -1 && NeedsSwap(_list[swapPos], _list[right]))
+			swapPos = right;
+
+		if (swapPos != pos)
 		{
-			var parent = GetParent(pos);
+			Swap(pos, swapPos);
+			HeapifyDown(swapPos);
+		}
+	}
+
+	private void HeapifyUp(int pos)
+	{
+		if (pos == 0) return;
+
+		var parent = GetParent(pos);
+		if (NeedsSwap(_list[parent], _list[pos]))
+		{
 			Swap(pos, parent);
-			pos = parent;
+			HeapifyUp(parent);
 		}
 	}
 
@@ -117,6 +151,23 @@ public abstract class AbstractHeap
 		return pos / 2;
 	}
 
+	protected int GetLeftChild(int pos)
+	{
+		var n = pos * 2;
+		return FilterChild(n);
+	}
+
+	protected int GetRightChild(int pos)
+	{
+		var n = (pos * 2) + 1;
+		return FilterChild(n);
+	}
+
+	private int FilterChild(int n)
+	{
+		return n < _list.Count ? n : -1;
+	}
+
 	public void Print()
 	{
 		// TODO - make it pretty!
@@ -128,7 +179,6 @@ public abstract class AbstractHeap
 public class MinHeap : AbstractHeap
 {
 	public int GetMin() { return GetRoot(); }
-	public void DeleteMin() { RemoveRoot(); }
 	protected override bool NeedsSwap(int parent, int child) { return child < parent; }
 }
 
@@ -136,7 +186,6 @@ public class MinHeap : AbstractHeap
 public class MaxHeap : AbstractHeap
 {
 	public int GetMax() { return GetRoot(); }
-	public void DeleteMax() { RemoveRoot(); }
 	protected override bool NeedsSwap(int parent, int child) { return child > parent; }
 }
 
