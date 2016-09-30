@@ -6,77 +6,65 @@ public class Solution
 {
 	public static void Main(string[] args)
 	{
-#if true
-
-		var mediator = new ListMediator();
+		var medianFinder = new HeapMedianFinder();
 		var n = int.Parse(Console.ReadLine());
 		for (var i = 0; i < n; i++)
 		{
-			mediator.Add(int.Parse(Console.ReadLine()));
-			Console.WriteLine("{0:0.0}", mediator.GetMedian());
+			medianFinder.Add(int.Parse(Console.ReadLine()));
+			Console.WriteLine("{0:0.0}", medianFinder.GetMedian());
 		}
-
-#else
-
-		var heap = new MaxHeap();
-		heap.Add(12);
-		heap.Add(32);
-		heap.Add(2);
-		heap.Print();
-		heap.Add(52);
-		heap.Add(44);
-		heap.Add(1);
-		heap.Add(24);
-		heap.Print();
-
-		while (heap.Count > 1)
-		{
-			heap.Delete();
-			heap.Print();
-		}
-#endif
 	}
 }
 
 
-public class HeapMediator
+public class HeapMedianFinder
 {
-}
-
-
-public class ListMediator
-{
-	private List<int> _list = new List<int>();
+	private MinHeap _right = new MinHeap();
+	private MaxHeap _left = new MaxHeap();
 
 	public void Add(int num)
 	{
-		_list.Add(num);
-		var i = _list.Count - 1;
-		while (i > 0 && _list[i] < _list[i - 1])
+		// Add new number to the proper list
+		if (num > _right.GetMin())
 		{
-			var temp = _list[i];
-			_list[i] = _list[i - 1];
-			_list[i - 1] = temp;
-			i -= 1;
+			_right.Add(num);
+		}
+		else
+		{
+			_left.Add(num);
+		}
+
+		// Rebalance
+		while (_left.Count <= _right.Count)
+		{
+			var moved = _right.GetMin();
+			_right.Delete();
+			_left.Add(moved);
+		}
+
+		while (_left.Count - 1 > _right.Count)
+		{
+			var moved = _left.GetMax();
+			_left.Delete();
+			_right.Add(moved);
 		}
 	}
-
 
 	public double GetMedian()
 	{
-		var mid = _list.Count / 2;
-
-		if (_list.Count % 2 == 1)
+		if (_left.Count == 0)
 		{
-			// Odd
-			return _list[mid];
+			throw new Exception("Can't get from empty median-finder!");
 		}
 
-		// Even
-		return (_list[mid] + _list[mid - 1]) / 2.0;
+		if (_left.Count == _right.Count)
+		{
+			return (_left.GetMax() + _right.GetMin()) / 2.0;
+		}
+
+		return _left.GetMax();
 	}
 }
-
 
 
 public abstract class AbstractHeap
@@ -178,14 +166,14 @@ public abstract class AbstractHeap
 
 public class MinHeap : AbstractHeap
 {
-	public int GetMin() { return GetRoot(); }
+	public int GetMin() { return Count > 0 ? GetRoot() : int.MaxValue; }
 	protected override bool NeedsSwap(int parent, int child) { return child < parent; }
 }
 
 
 public class MaxHeap : AbstractHeap
 {
-	public int GetMax() { return GetRoot(); }
+	public int GetMax() { return Count > 0 ? GetRoot() : int.MinValue; }
 	protected override bool NeedsSwap(int parent, int child) { return child > parent; }
 }
 
