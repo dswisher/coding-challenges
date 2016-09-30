@@ -6,7 +6,7 @@ public class Solution
 {
 	public static void Main(string[] args)
 	{
-		var map = new PositionMap();
+		var map = new TreeMap();
 
 		// Input: lines of the following form
 		// 	A <val>
@@ -36,7 +36,49 @@ public class Solution
 }
 
 
-public class PositionMap
+public class TreeMap
+{
+	private Node _root;
+
+	public void Add(int val)
+	{
+		var node = new Node { Data = val };
+
+		if (_root == null)
+		{
+			_root = node;
+		}
+		else
+		{
+			Add(_root, node);
+		}
+	}
+
+
+	public int Get(int val)
+	{
+		// TODO
+		return -1;
+	}
+
+
+	private void Add(Node parent, Node child)
+	{
+		// TODO
+	}
+
+
+	private class Node
+	{
+		public int Data { get; set; }
+		public int NumLeft { get; set; }
+		public Node Left { get; set; }
+		public Node Right { get; set; }
+	}
+}
+
+
+public class ListMap
 {
 	public List<int> _list = new List<int>();
 

@@ -1,4 +1,4 @@
-Imagine you have a stream of number coming from some system and
+Imagine you have a stream of numbers coming from some system and
 you want to store them. Design a data structure to store these
 numbers. Given a number in the structure, tell the ranking of the
 number in the natural order of the value.
