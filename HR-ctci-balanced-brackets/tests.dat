@@ -18,3 +18,9 @@ vvvv MINE-00
 NO
 ^^^^
 
+vvvv TEST-03
+@@ BIG/input-03.txt
+----
+@@ BIG/output-03.txt
+^^^^
+

@@ -27,11 +27,9 @@ public class Solution
 			}
 			else if (IsRight(c))
 			{
+				if (stack.Count == 0) { return false; }
 				var o = stack.Pop();
-				if (!AreMatch(o, c))
-				{
-					return false;
-				}
+				if (!AreMatch(o, c)) { return false; }
 			}
 			// TODO - handle non-brackets?
 		}
