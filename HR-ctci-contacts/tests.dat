@@ -10,3 +10,20 @@ find hak
 0
 ^^^^
 
+vvvv MINE-01
+9
+add fred
+add barney
+add wilma
+add betty
+add bill
+find b
+find fred
+add barnum
+find barn
+----
+3
+1
+2
+^^^^
+
