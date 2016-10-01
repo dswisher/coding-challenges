@@ -57,14 +57,56 @@ public class TreeMap
 
 	public int Get(int val)
 	{
-		// TODO
-		return -1;
+		return Get(_root, 1, val);
+	}
+
+
+	private int Get(Node node, int leftSum, int val)
+	{
+		if (val == node.Data)
+		{
+			return leftSum + node.NumLeft;
+		}
+		else if (val < node.Data)
+		{
+			if (node.Left == null) return -1;
+			return Get(node.Left, leftSum, val);
+		}
+		else // if (val > node.Data)
+		{
+			if (node.Right == null) return -1;
+			return Get(node.Right, leftSum + node.NumLeft + 1, val);
+		}
 	}
 
 
 	private void Add(Node parent, Node child)
 	{
-		// TODO
+		if (child.Data < parent.Data)
+		{
+			parent.NumLeft += 1;
+			if (parent.Left == null)
+			{
+				parent.Left = child;
+			}
+			else
+			{
+				Add(parent.Left, child);
+			}
+		}
+		else if (child.Data > parent.Data)
+		{
+			if (parent.Right == null)
+			{
+				parent.Right = child;
+			}
+			else
+			{
+				Add(parent.Right, child);
+			}
+		}
+
+		// TODO - how to handle equality?
 	}
 
 
