@@ -9,7 +9,6 @@ public class Solution
 		var node = Node.CreateList(Console.ReadLine());
 
 		var list = Reverse(node);
-		list.Tail.Next = null;
 
 		list.Head.Print();
 	}
@@ -24,6 +23,7 @@ public class Solution
 		var newList = Reverse(node.Next);
 		newList.Tail.Next = node;
 		newList.Tail = node;
+		node.Next = null;
 		return newList;
 	}
 }
