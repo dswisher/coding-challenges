@@ -1,7 +1,0 @@
-
-pp.101 - 1.2 - Check Permutation
-
-Hints: 1, 84, 122, 131 (start on pp.664)
-
-Solution: pp.204
-

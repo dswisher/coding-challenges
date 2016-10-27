@@ -1,6 +1,0 @@
-
-pp.105 - 2.3 - Delete Middle Node
-
-Hints: 72  (start on pp.664)
-
-Solution: pp.222

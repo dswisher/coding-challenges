@@ -1,6 +1,0 @@
-
-pp.102 - 1.9 - String Rotation
-
-Hints: 34, 88, 104 (start on pp.664)
-
-Solution: pp.217

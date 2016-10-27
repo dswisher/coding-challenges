@@ -1,6 +1,0 @@
-
-pp.110 - 3.5 - Sort Stack
-
-Hints: 15, 23, 43 (start on pp.664)
-
-Solution: pp.248

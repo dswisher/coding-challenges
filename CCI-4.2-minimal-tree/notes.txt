@@ -1,8 +1,0 @@
-
-pp.120 - 4.2 - Minimal tree
-	Given a sorted (increasing order) array with unique integer elements,
-	write an algorithm to create a binary search tree with minimal height.
-
-Hints: 19, 73, 116 (start on pp.664)
-
-Solution: pp.253

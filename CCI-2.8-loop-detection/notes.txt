@@ -1,7 +1,0 @@
-
-pp.106 - 2.8 - Loop Detection
-
-Hints: 50, 69, 83, 90  (start on pp.664)
-
-Solution: pp.234
-
