@@ -9,6 +9,7 @@ public class Solution
 		var node = Node.CreateList(Console.ReadLine());
 
 		var list = Reverse(node);
+		list.Tail.Next = null;
 
 		list.Head.Print();
 	}
